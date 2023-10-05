@@ -1,0 +1,50 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: poi-poi-map-app-dev
+  annotations:
+    argocd/app-name: poi-poi-map-app-dev
+    backstage.io/kubernetes-id: poi-poi-map-app
+    backstage.io/kubernetes-namespace: poi
+    backstage.io/techdocs-ref: url:https://github.com/rhdhdemo/poi-frontend
+    backstage.io/source-location: url:https://github.com/rhdhdemo/poi-frontend
+    janus-idp.io/tekton-enabled: 'true'
+    github.com/project-slug: rhdhdemo/poi-frontend
+    quay.io/repository-slug: rhdhdemo/poi-frontend
+  tags:
+    - typescript
+    - angular
+    - workshop
+  links:
+    - url: https://console-openshift-console.apps.cluster-m2vkc.m2vkc.sandbox3174.opentlc.com/dev-pipelines/ns/poi/
+      title: Pipelines
+      icon: web
+    - url: https://console-openshift-console.apps.cluster-m2vkc.m2vkc.sandbox3174.opentlc.com/k8s/ns/poi/deployments/poi-poi-map-app
+      title: Deployment
+      icon: web
+    - url: https://devspaces.apps.cluster-m2vkc.m2vkc.sandbox3174.opentlc.com/#https://github.com/rhdhdemo/poi-frontend?che-editor=che-incubator/che-code/latest&devfilePath=.devfile-vscode.yaml
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+    - url: http://poi-poi-map-app-poi.apps.cluster-m2vkc.m2vkc.sandbox3174.opentlc.com
+      title: Map
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "dev-user"
+  system: workshop-system-poi
+  consumesApis:
+    - gateway-api-poi
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: workshop-system-poi
+  tags:
+    - backstage
+    - janus-idp
+    - openshift
+    - workshop
+    - rh-summit
+spec:
+  owner: "dev-user"
