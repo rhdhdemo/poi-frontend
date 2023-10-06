@@ -8,7 +8,6 @@ metadata:
     backstage.io/kubernetes-namespace: poi
     backstage.io/techdocs-ref: url:https://github.com/rhdhdemo/poi-frontend
     backstage.io/source-location: url:https://github.com/rhdhdemo/poi-frontend
-    janus-idp.io/tekton-enabled: 'true'
     github.com/project-slug: rhdhdemo/poi-frontend
     quay.io/repository-slug: rhdhdemo/poi-frontend
   tags:
